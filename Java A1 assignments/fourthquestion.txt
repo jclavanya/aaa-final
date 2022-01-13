@@ -1,0 +1,28 @@
+package training;
+
+import java.util.Scanner;
+
+public class condition {
+
+	public static void main(String[] args) {
+		int result;
+		
+		Scanner s =new Scanner(System.in);
+		System.out.println("First Subject Marks");
+		int sub1 =s.nextInt();
+		System.out.println("Second Subject Marks");
+		int sub2 =s.nextInt();
+		System.out.println("Third Subject Marks");
+		int sub3 =s.nextInt();
+		result= sub1+sub2+sub3;
+		if(result> 60)
+		
+			System.out.println("passed");
+		else		
+						
+			System.out.println("failed");
+		
+
+	}
+
+}

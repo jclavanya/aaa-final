@@ -1,0 +1,30 @@
+package training;
+
+import java.util.Scanner;
+
+public class gui {
+  
+	public static void main(String[] args)
+	{
+		for(int i=0; i<=3 ;i++)
+		{
+		 Scanner s=new Scanner(System.in);
+		 System.out.println("Enter userid:");
+		 String userid = s.nextLine();
+		 System.out.println("Enter password:");
+		 String password = s.nextLine();
+	 	if((userid.equals("lavanya"))&&(password.equals("user12")))
+		 		 {
+			 System.out.println("valid" +userid );
+		 		 }
+		 		
+		
+		else
+		{	
+			System.out.println("invalid");		 
+		}
+	}
+	System.out.println("contact admin");
+	System.exit(0);
+}
+}

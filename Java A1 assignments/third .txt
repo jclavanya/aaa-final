@@ -1,0 +1,22 @@
+package training;
+
+import java.util.Scanner;
+
+public class simpleinterest {
+
+	public static void main(String[] args) {
+		int  result;
+		Scanner s =new Scanner(System.in);
+		System.out.println(" p value");
+		int s1=s.nextInt();
+		System.out.println(" t value");
+		int s2=s.nextInt();
+		System.out.println(" r value");
+		int s3=s.nextInt();
+		result= s1+s2+s3/100;
+   	        System.out.println(s+ "result" +result);
+		
+
+}
+
+}
