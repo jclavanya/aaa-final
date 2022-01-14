@@ -1,0 +1,54 @@
+package shapes;
+
+public  abstract class shapes
+{
+	
+	public abstract void draw();
+
+}
+class line extends shapes
+{
+	public void draw()
+	{
+	System.out.println("draw line");
+	}
+	
+}
+class rectangle extends line
+{
+	public void draw()
+	{
+	System.out.println("draw rectangle");
+	}
+	
+	
+}
+class square extends rectangle
+{
+	public void draw()
+	{
+		System.out.println("draw square.... ");
+	}
+	
+}
+class cube extends square
+{
+	public void draw()
+	{
+		System.out.println("draw cube..... ");
+	}
+}
+class main 
+{
+public static void main(String[] args)
+{
+	line l1=new line();
+     l1.draw();
+	rectangle r1=new rectangle();
+	r1.draw();
+	square s1=new square();
+	s1.draw();
+	cube c1=new cube();
+	c1.draw();
+}
+}

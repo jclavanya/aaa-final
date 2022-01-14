@@ -1,0 +1,38 @@
+public  abstract class persistence {
+	public abstract void persist();
+
+	
+
+}
+class filepersistence extends persistence
+{  
+	public void persist()
+	{
+		System.out.println("the data stored in files");
+		
+	}
+}
+class datapersistence extends filepersistence
+{
+	public void persist()
+	{
+		System.out.println("the data stored in database");
+	
+	}
+}
+import java.util.*;
+public class stored {
+	public static void main(String args[])
+	{
+
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("enter persistence type");
+		String persistencetype=sc.nextLine();
+		filepersistence f1=new filepersistence();
+		f1.persist();
+		datapersistence dp=new datapersistence();
+		dp.persist();
+		}
+		
+	}
