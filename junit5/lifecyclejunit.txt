@@ -1,0 +1,57 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class utilsTest {
+	utils u1;
+	
+	@BeforeAll
+	static void display()
+	{
+		System.out.println("welcome");
+	}
+	
+	@AfterAll
+	static void teardown()
+	{
+		System.out.println("end");
+	}
+	
+	@BeforeEach
+	 void bf()
+	{
+		System.out.println("Before each lavanya");
+	}
+	@AfterEach
+	void af()
+	{
+		System.out.println("aftereach lavanya");
+	}
+	
+	@Test
+	void testadd() {
+		utils u1=new utils();
+			int expected =2;
+		int actualResult =u1.add(1,1);
+		assertEquals(expected,actualResult);
+		System.out.println("addition");
+		
+	}
+
+	
+	
+
+
+public class utils {
+	
+
+		public int add(int a, int b) {
+			return a+b ;
+		}
+	}
+
+}

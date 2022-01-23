@@ -1,0 +1,54 @@
+package io.javabrains;
+import java.util.*;
+import java.util.Scanner;
+
+
+public class BankAccount {
+	static int i;
+	static double balance;
+	static double amount;
+	
+		
+	void withdraw()throws InsufficientFundsException
+	{
+      if(amount>balance||balance<=0)
+      	  
+      {
+    throw new InsufficientFundsException("Insuficient Funds");	
+    	}
+      System.out.println("the withdrawl amount is"+amount);
+      System.out.println("the total amount after withdraw is:"+(balance-amount));
+	}
+	public static void main(String args[]) throws InsufficientFundsException
+	
+	{
+		for(i=0;i<4;i++)
+		{
+		
+		Scanner sc=new Scanner(System.in);
+		BankAccount result =new BankAccount();
+		System.out.println("enter the account type");
+		String accounttype=sc.nextLine();
+		if(accounttype.matches("savingaccount"))
+			{
+		System.out.println("Enter  the  withdraw amount");
+		 amount=sc.nextInt();
+		System.out.println("amount is:");
+		 balance=sc.nextInt();
+		result.withdraw();
+			}
+				else
+				{
+				System.out.println("it is not valid");
+				}
+		}
+	}
+}
+class InsufficientFundsException extends Exception
+{
+	public InsufficientFundsException(String str)
+	{
+	System.out.println(str);
+}
+
+}
