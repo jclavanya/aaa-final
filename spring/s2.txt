@@ -1,0 +1,91 @@
+package springcore_example;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class question {
+	
+	private int QuestionId;
+	private String Question;
+	private List<String> Answer;
+	private Set<String> Answer1;
+	private Map<Integer,String> Answer2;
+	
+	public question(int questionid, String question,List<String> answer,Set<String> answer1,Map<Integer,String>
+			answer2)
+	{
+		super();
+		QuestionId= questionid;
+		Question= question;
+		Answer = answer;
+		Answer1= answer1;
+		Answer2= answer2;
+	}
+	
+	public void showAnswer()
+	{
+		System.out.println(QuestionId+ ""+Question);
+		System.out.println("Answers from (List,Set,Map)");
+		
+		System.out.println("Answers from(List)");
+		Iterator<String> i= Answer.iterator();
+		while(i.hasNext()) {
+			System.out.println(i.next());
+		}
+		System.out.println("Answers from(set)");
+		Iterator<String> iSet= Answer1.iterator();
+		while(iSet.hasNext()) {
+			System.out.println(iSet.next());
+		}
+		System.out.println("Answers from(map)");
+				for(Map.Entry<Integer, String> entry: Answer2.entrySet())
+		{
+			System.out.println(entry.getKey()+ ""+entry.getValue());
+		}
+		
+		
+		
+		
+	}
+	
+	
+
+}
+<bean id ="first" class="springcore_example.question">
+      <constructor-arg value="1"></constructor-arg>
+      <constructor-arg value="what do you mean by dependency injection"></constructor-arg>
+      <constructor-arg>
+               <list>
+               <value> a. It is loose coupling  technique</value>
+               <value> b. It is independent from tight coupling</value>
+              </list>
+      
+      </constructor-arg>
+      <constructor-arg>
+               <set>
+               <value> c. classes and objects are independent</value>
+               <value> d. objects management is taken care by spring</value>
+              </set>
+      
+      </constructor-arg>
+      <constructor-arg>
+               <map>
+               <entry key="5" value="special feature of spring"/>
+               <entry key="6" value="Importa feature of spring"/>
+               
+              </map>
+      
+      </constructor-arg>
+      </bean>
+      public class mainmethod {
+	public static void main(String args[])
+	{
+		ApplicationContext context=new ClassPathXmlApplicationContext("second.xml");
+		
+		question q1=(question)context.getBean("first");
+		
+		q1.showAnswer();
+	}
+
+}
