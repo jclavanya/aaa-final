@@ -1,0 +1,70 @@
+package lifecycle;
+
+public class Samosa {
+	
+		private double price;
+
+		public double getPrice() {
+			return price;
+		}
+
+		public void setPrice(double price)
+		{
+			System.out.println("setting price");
+			this.price = price;
+		}
+
+		public Samosa() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
+		@Override
+		public String toString() {
+			return "Samosa [price=" + price + "]";
+		}
+		public void esther()
+		{
+			System.out.println("inside init method");
+		}
+		public void johnpaul()
+		{
+			System.out.println("inside init destroy");
+		}
+
+	}
+
+package lifecycle;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+
+public class test {
+
+	public static void main(String[] args) {
+AbstractApplicationContext context=new ClassPathXmlApplicationContext("fig.xml");
+		
+		Samosa q1 =(Samosa)context.getBean("s1");
+		System.out.println(q1);
+		context.registerShutdownHook();
+
+	}
+
+}
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<bean class="lifecycle.Samosa" name = "s1"  init-method="esther" destroy-method="johnpaul">
+
+<property name="price" value="10"></property>
+</bean> 
+
+
+
+</beans>
